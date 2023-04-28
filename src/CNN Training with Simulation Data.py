@@ -106,7 +106,11 @@ time_increment = 2e-09
 
 sampling_num = int(total_time/time_increment)
 
-X_df_ = X_df2.iloc[:, sampling_num:27000]
+backwall = 56e-06
+
+truncate_backwall = int(np.ceil(backwall/time_increment))
+
+X_df_ = X_df2.iloc[:, sampling_num:truncate_backwall]
 
 
 # ## Create a dataframe with the subset of target variables to predict
